@@ -49,7 +49,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-[var(--border)] mt-8 pt-6 text-center text-sm text-[var(--muted)]">
-          <p>© {new Date().getFullYear()} Voyage. جميع الحقوق محفوظة.</p>
+          <p>© {new Date().getFullYear()} yassine. جميع الحقوق محفوظة.</p>
         </div>
       </div>
     </footer>
