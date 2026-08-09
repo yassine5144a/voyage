@@ -44,10 +44,17 @@ export default function RegisterPage() {
     });
 
     if (error) {
-      if (error.message.includes("already registered")) {
+      const msg = error.message.toLowerCase();
+      if (msg.includes("already registered") || msg.includes("user already registered") || msg.includes("email already")) {
         setError("هذا البريد الإلكتروني مسجّل بالفعل");
+      } else if (msg.includes("password")) {
+        setError("كلمة المرور ضعيفة جداً، استخدم حروفاً وأرقاماً");
+      } else if (msg.includes("invalid email")) {
+        setError("البريد الإلكتروني غير صالح");
+      } else if (msg.includes("signup") && msg.includes("disabled")) {
+        setError("التسجيل معطّل حالياً");
       } else {
-        setError("حدث خطأ، حاول مرة أخرى");
+        setError(`خطأ: ${error.message}`);
       }
       setLoading(false);
       return;
